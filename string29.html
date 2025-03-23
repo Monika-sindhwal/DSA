@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+
+            int main() {
+                char str[20];
+                int i=0,j=0,count=0,arr[20];
+               printf("Enter a string:");
+               gets(str);
+              
+              while(str[i]!='\0'){
+                count++;
+                   i++;
+                  
+               }
+              
+               for(i=0;i&lt;count;i++){
+                   arr[i]=str[i];
+               }
+                 
+               printf("Array of ascii values is:");
+                  
+               for(j=0;j&lt;count;j++){
+                  printf("\n%d",arr[j]);
+                     
+               }
+            
+                return 0;
+            }
+            <h1>Output</h1>
+            <hr>
+Enter a string:HELLO WELCOME
+Array of ascii values is:
+72
+69
+76
+76
+79
+32
+87
+69
+76
+67
+79
+77
+69
+            
+    </pre>
+</body>
+</html>

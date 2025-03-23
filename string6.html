@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+        int length(char *arr,int a){
+            int size=0;
+        for(int i=0;arr[i]!='\0';i++){
+            size++;
+         }
+         return size;
+        }
+        int main()
+        {
+        char str[20];
+        int size;
+        printf("Enter a string:");
+        gets(str);
+        size=length(str,20);
+        printf("Length of string is:%d",size);
+        
+        return 0;}
+    <h1>OUTPUT</h1>
+    <hr>
+Enter a string:HELLO
+Length of string is:5
+    </pre>
+</body>
+</html>

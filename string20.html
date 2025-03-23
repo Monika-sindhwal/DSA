@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            int countcharacters(char *string){
+                int count=0;
+                for(int i=0;string[i]!='\0';i++){
+                    count++;
+                }
+                return count;
+            }
+            int countwords(char *string){
+                int count=0;
+                for(int i=0;string[i]!='\0';i++){
+                    if(string[i]==32 ){
+                        count++;
+                    }
+                }
+                return count+1;
+            }
+            int countspaces(char *string){
+                int count=0;
+                for(int i=0;string[i]!='\0';i++){
+                    if(string[i]==32 ){
+                        count++;
+                    }
+                }
+                return count;
+            }
+            int countlines(char *string){
+                int count=0,i=0;
+                while(string[i]!='\0'){
+                    if(string[i]=='.')
+                    count++;
+                    i++;
+                }
+                return count;
+            }
+            int main()
+            {
+            char string[20];
+            int character,words,spaces,lines;
+            gets(string);
+            character=countcharacters(string);
+            printf("No. of characters are %d\n",character);
+            words=countwords(string);
+            printf("No. of words are %d\n",words);
+            spaces=countspaces(string);
+            printf("No. of spaces are %d\n",spaces);
+            lines=countlines(string);
+            printf("No. of lines are %d\n",lines);
+            
+            return 0;
+            }
+        <H1>OUTPUT</H1>
+        <hr>
+HII WELCOME HOME.
+No. of characters are 17
+No. of words are 3
+No. of spaces are 2
+No. of lines are 1
+    </pre>
+</body>
+</html>

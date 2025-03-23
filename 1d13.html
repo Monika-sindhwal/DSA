@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+       
+                
+            int main() {
+               int i, arr[5], count=0,j;
+                printf("enter an array\n");
+                
+                for(i=0;i&lt;5;i++)
+                {
+                    scanf("%d",&arr[i]);
+                }
+                
+                
+                for(i=0;i&lt;5;i++) { 
+
+                 for(j=i+1;j&lt;5;j++)
+                 {
+                     if(arr[i]==arr[j])
+                       {count++;}
+                 }   
+              }
+              printf("%d duplicated numbers",count);
+                  
+                return 0;
+            
+            }
+        <h1>OUTPUT</h1>
+        <hr>
+enter an array
+1 1 2 2 3
+2 duplicated numbers
+    </pre>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+
+            int main() {
+                char str[30];
+                char ch;
+            
+                printf("Enter a string: ");
+                gets(str);
+            
+                printf("Enter a character to search: ");
+                scanf("%c", &ch);
+            
+                int found = 0;
+            
+                for (int i = 0; str[i] != '\0'; i++) {
+                    if (str[i] == ch) {
+                        found = 1;
+                        break;
+                    }
+                }
+            
+                if (found) {
+                    printf("The character '%c' was found in the string.\n",ch);
+                } else {
+                    printf("The character '%c' was not found in the string.\n", ch);
+                }
+            
+                return 0;
+            }
+            
+    <h1>OUTPUT</h1>
+    <hr>
+Enter a string: hello
+Enter a character to search: o
+The character 'o' was found in the string.
+PS C:\DSA\String>
+    </pre>
+</body>
+</html>

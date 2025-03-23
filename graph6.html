@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;
+            struct edge{
+                int data;
+                struct edge *next2;
+            };
+            int rear=-1,front=0,queue[10],visited[10];
+            void enque(int value){
+                rear++;
+                queue[rear]=value;
+            }
+            int deque(){
+                return queue[front++];
+            }
+            struct vertix{
+                int data;
+                struct vertix *next;
+                struct edge *ptr;
+            };
+            struct vertix *start=NULL,*search,*nn,*t,*pre;
+            struct edge *s,*nn2,*pre2;
+            void insertvertex(){
+                if(start==NULL){
+                    start=(struct vertix*)malloc(sizeof(struct vertix));
+                    printf("Enter the vertex:");
+                    scanf("%d",&(start->data));
+                    start->next=NULL;
+                    start->ptr=NULL;
+                }
+                else{
+                  search=start;
+                  nn=(struct vertix*)malloc(sizeof(struct vertix));
+                  while(search->next!=NULL){
+                      search=search->next;
+                  }
+                  search->next=nn;
+                  printf("Enter the vertex:");
+                  scanf("%d",&(nn->data));
+                  nn->next=NULL;
+                  nn->ptr=NULL;
+                  
+                }
+            }
+            void insertedge(){
+                int src,dest;
+                printf("Enter the source and destination:");
+                scanf("%d %d",&src ,&dest);
+                search=start;
+                while(search!=NULL){
+                    if(search->data==src)
+                    break;
+                    search=search->next;
+                }
+                if(search==NULL){
+                    printf("Entered source is not available");
+                    return;
+                }
+                 t=start;
+                while(t!=NULL){
+                    if(t->data==dest)
+                    break;
+                    t=t->next;
+                }
+                if(t==NULL){
+                    printf("Entered dest is not available");
+                    return;
+                }
+                nn2=(struct edge*)malloc(sizeof(struct edge));
+                nn2->data=dest;
+                nn2->next2=NULL;
+                if(search->ptr==NULL){
+                search->ptr=nn2;
+               
+                }
+                else{
+                   s=search->ptr;
+                   while(s->next2!=NULL){
+                       s=s->next2;
+                   }
+                   s->next2=nn2;
+                   
+                }
+               
+                
+            }
+            void bfs(int sv){
+                enque(sv);
+                visited[sv]=1;
+                while(!(front>rear)){
+                     int currentVertex = deque();
+                     printf("%d ", currentVertex);
+                     search=start;
+                     while(search!=NULL){
+                         if(search->data==currentVertex){
+                             break;
+                         }
+                         search = search->next;
+                     } if (search != NULL) {
+                         s=search->ptr;
+                         while(s!=NULL){
+                             if(!visited[s->data]){
+                                 enque(s->data);
+                                 visited[s->data]=1;
+                             }
+                             s=s->next2;
+                         }
+                     }
+                }
+            }
+                    
+            int main() {
+                int op,sv;
+                while(1)
+                {printf("\nEnter 1 choice:\n1.Insert vertix\n2.Insert edge\n3.Breadth first search\n4.exit\n");
+                scanf("%d",&op);
+                switch(op){
+                    case 1:
+                    insertvertex();
+                    break;
+                    case 2:
+                    insertedge();
+                    break;
+                    case 3:
+                    printf("Enter the starting vertex: ");
+                    scanf("%d",&sv);
+                    bfs(sv);
+                    break;
+                    case 4:
+                    exit(0);
+                    break;
+                    default:
+                    printf("Invalid choice\n");
+                    
+                }}
+                return 0;
+            }
+        <h1>OUTPUT</h1>
+        <hr>
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:1
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:2
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:3
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:4
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:5
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:6
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+1
+Enter the vertex:7
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+2
+Enter the source and destination:1 2
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+2
+Enter the source and destination:1 3
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+2
+Enter the source and destination:2 6
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+2
+Enter the source and destination:3 4
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+2
+Enter the source and destination:3 5
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+2
+Enter the source and destination:4 7
+
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+3
+Enter the starting vertex: 1
+1 2 3 6 4 5 7 
+Enter 1 choice:
+1.Insert vertix
+2.Insert edge
+3.Breadth first search
+4.exit
+
+    </pre>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;
+        #include &lt;string.h&gt;
+            int push(char arr[][10],int top){
+            
+                {top++;
+                printf("Enter the string to be pushed:");
+                scanf("%s",&arr[top]);
+                    
+                    return top;
+                }
+            }
+            int pop(char arr[][10],int top){
+                if(top==-1){
+                    return -1;
+                }
+                else{
+            
+                    return top;
+                }
+            }
+            void peek(int top,char arr[][10]){
+                if(top==-1)
+                printf("Stack is empty\n");
+                else
+                printf("%s\n",arr[top]);
+            
+            }
+            void isEmpty(int top){
+                if(top==-1){
+                    printf("Stack is empty");
+                }
+                else
+                printf("Stack is not empty");
+            }
+            void isFull(int size,int top){
+                if(top==size){
+                    printf("Stack is Full");
+                }
+                else
+                printf("Stack is not Full");
+            }
+            
+            int main()
+            {
+            char arr[5][10],key;
+            int option,top=-1,size=5;
+            while(1){
+            printf("Enter your choice:\n1.Push\n2.Pop\n3.Isempty\n4.Isfull\n5.Peek\n6.Exit\n");
+            scanf("%d",&option);
+            switch(option){
+                case 1:
+                if(top==4){
+                   printf("Overflow condition\n");
+                } 
+                else{
+                    top = push(arr,top);
+            printf("Value  is pushed\n");
+                }
+            break;
+            case 2:
+                top = pop(arr,top);
+            if(top==-1)
+            printf("Stack is empty\n");
+            else
+            
+            printf("string popped is %s\n",arr[top]);
+            top--;
+            break;
+            case 3:
+            isEmpty(top);
+            break;
+            case 4:
+            isFull(size,top);
+            break;
+            case 5:
+            peek(top,arr);
+            break;
+            case 6:
+            exit(0);
+            default:
+            printf("Enter a valid choice\n");
+            }}
+            return 0;
+            
+            }
+    <h1>OUTPUT</h1>
+Enter your choice:
+1.Push
+2.Pop
+3.Isempty
+4.Isfull
+5.Peek
+6.Exit
+1
+Enter the string to be pushed:hi
+Value  is pushed
+Enter your choice:
+1.Push
+2.Pop
+3.Isempty
+4.Isfull
+5.Peek
+6.Exit
+1
+Enter the string to be pushed:hey
+Value  is pushed
+Enter your choice:
+1.Push
+2.Pop
+3.Isempty
+4.Isfull
+5.Peek
+6.Exit
+5
+hey
+Enter your choice:
+1.Push
+2.Pop
+3.Isempty
+4.Isfull
+5.Peek
+6.Exit
+2
+string popped is hey
+Enter your choice:
+1.Push
+2.Pop
+3.Isempty
+4.Isfull
+5.Peek
+6.Exit
+6
+PS C:\DSA\stack> 
+    </pre>
+</body>
+</html>

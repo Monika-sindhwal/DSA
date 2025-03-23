@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+            void trim(char *arr,int size){
+              
+              int start=0,end=size-1,z=0;
+            while(arr[start]==32){
+                start++;
+                z++;
+            }
+            while(arr[end]==32){
+                end--;
+                z++;
+            }
+            arr[end+1]='\0';
+            size=size-z;
+            for(int i=0;i<=size;i++){
+            arr[i]=arr[start];
+            start++;}  
+            puts(arr);
+            
+            }
+            
+            int main()
+            {
+            char str[20];
+            int i=0,size=0;
+            printf("Enter a string:");
+            gets(str);
+            for(int i=0;str[i]!='\0';i++)
+              size++;
+            trim(str,size);
+            
+            
+            return 0;
+            }
+        <H1>OUTPUT</H1>
+        <hr>
+Enter a string:   hello
+hello
+    </pre>
+</body>
+</html>

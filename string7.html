@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+            int compare(char *arr,char *arr2){
+                int i;
+                printf("hi");
+               for( i=0;arr[i]!='\0'||arr[i]=='\0';i++){
+                if(arr[i]!=arr2[i]){
+                    return 0;
+                }
+               }
+               if(arr[i]='\0'){
+                return 1;
+               }
+            }
+            int main()
+            {
+            char str[20],str2[20];
+            int i=0,key;
+            printf("Enter first string:");
+            gets(str);
+            printf("Enter second string:");
+            gets(str2);
+            key=compare(str,str2);
+            if(key==0){
+                printf("Not equal");
+            }
+            else
+            printf("Equal");
+            
+            return 0;
+            }
+   
+
+    </pre>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            int bs(int l, int r, int key, int *arr)
+            {
+                if (l <= r)
+                {
+                    int mid;
+                    mid = ((l + r) / 2);
+                    if (arr[mid] == key)
+                    {
+                        return mid;
+                    }
+                    else if (arr[mid] > key)
+                        return bs(l, mid - 1, key, arr);
+                    else
+                        return bs(mid + 1, r, key, arr);
+                }
+                return -1;
+            }
+            int main()
+            {
+                int arr[5], key, loc, l = 0, r = 4;
+                printf("Enter 5 elements of the array:");
+                for (int i = 0; i < 5; i++)
+                    scanf("%d", &arr[i]);
+                printf("Enter the element you want to search:");
+                scanf("%d", &key);
+                loc = bs(l, r, key, arr);
+                if (loc == -1)
+                    printf("%d not found in the array\n", key);
+                else
+                    printf("%d fount at index %d in the array\n", key, loc);
+                return 0;
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter 5 elements of the array:7 8 68 99 100
+Enter the element you want to search:88
+88 not found in the array
+    </pre>
+</body>
+</html>

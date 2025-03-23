@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            int ls(char arr[], char key)
+            {
+                for (int i = 0; arr[i] != '\0'; i++)
+                {
+                    if (arr[i] == key)
+                        return i;
+                }
+                return -1;
+            }
+            int main()
+            {
+                char str[10], key;
+                int loc;
+                printf("Enter the string:");
+                gets(str);
+                printf("Enter the element you want to search:");
+                scanf("%c", &key);
+                loc = ls(str, key);
+                if (loc == -1)
+                    printf("%c not found in the array", key);
+                else
+                    printf("%c fount at index %d in the string", key, loc);
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter the string:JOKEY
+Enter the element you want to search:K
+K fount at index 2 in the string
+    </pre>
+</body>
+</html>

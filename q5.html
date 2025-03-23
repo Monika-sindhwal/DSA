@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>INPUT</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        #define n 6
+                int arr[n],front=-1,rear=-1,option,value;
+            int enqueue(int value){
+                if(rear==-1&&front==-1){
+                    rear=0;
+                    front=0;
+                    arr[rear]=value;
+                    return rear;
+                }
+                else if((rear+1)%n==front){
+                    printf("Queue is full");
+                    return rear;
+                }
+                else{
+                    rear=(rear+1)%n;
+                    arr[rear]=value;
+                     return rear;
+                }
+            }
+            int dequeue(){
+            
+                if(front==-1){
+                    printf("Underflow condition");
+            }
+            else if(front==rear){
+                front=rear=-1;
+                 return front;
+            }
+            else{
+                int item=arr[front];
+                printf("Item %d is popped",item);
+                front=(front+1)%n;
+                return front;
+            }
+            }
+            void isEmpty(){
+                if(front==-1){
+                    printf("Queue is empty\n");
+                }
+                else{
+                    printf("Queue is not empty\n");
+                }
+            }
+            void isFull(){
+                if((rear+1)%n==front){
+                    printf("Queue is full\n");
+                }
+                else{
+                    printf("Queue is not full\n");
+                }
+            }
+            void peek(){
+                printf("%d\n",arr[rear]);
+            }
+            int main()
+            {
+                
+                while(1){
+            printf("Enter your choice:\n1.Push\n2.Pop\n3.Exit\n4.isEmpty\n5.isFull\n6.peek\n");
+            scanf("%d",&option);
+            switch(option){
+                case 1:
+                printf("Enter the value to be pushed:");
+                scanf("%d",&value);
+                rear = enqueue(value);
+                
+            break;
+            case 2:
+                front = dequeue();
+            
+            break;
+            case 3:
+            exit(0);
+            break;
+            case 4:
+            isEmpty();
+            break;
+            case 5:
+            isFull();
+            break;
+            case 6:
+            peek();
+            break;
+            default:
+            printf("Invalid choice\n");
+            }}
+            
+            return 0;
+            }
+        <h1>OUTPUT</h1>
+        <hr>
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:1
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:2
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:3
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:4
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:5
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:6
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:7
+Queue is fullEnter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+2
+Item 1 is poppedEnter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+2
+Item 2 is poppedEnter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+2
+Item 3 is poppedEnter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+1
+Enter the value to be pushed:1
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+4
+Queue is not empty
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.isFull
+6.peek
+5
+Queue is not full
+Enter your choice:
+1.Push
+2.Pop
+3.Exit
+4.isEmpty
+5.Isfull
+6.peek
+    </pre>
+</body>
+</html>

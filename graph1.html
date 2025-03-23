@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        // ENTER THE VERTICES AND EDGES AND REPRESENT IN ADJACENCY MATRIX AND PRINT IT.
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int vertices , matrix[10][10];
+void assignvalue()
+{
+    int src, dest, edge, i = 0, op;
+    printf("Enter whether the graph is directed or undirected\nEnter 1 for directed\nEnter 0 for undirected\n");
+    scanf("%d", &op);
+    // Insertion
+    if (op == 0)
+    {
+        printf("Enter the no. of edges:");
+        scanf("%d", &edge);
+        while (i < edge)
+        {
+            printf("Enter the source:");
+            scanf("%d", &src);
+            printf("Enter the destination:");
+            scanf("%d", &dest);
+            if (matrix[src - 1][dest - 1] == 1)
+            {
+                printf("Already connected\n");
+            }
+            else
+            {
+                matrix[src - 1][dest - 1] = 1;
+                matrix[dest - 1][src - 1] = 1;
+                i++;
+            }
+        }
+        for (int i = 0; i < vertices; i++)
+        {
+            for (int j = 0; j < vertices; j++)
+            {
+                printf("%d\t", matrix[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    else
+    {
+        printf("Enter the no. of edges:");
+        scanf("%d", &edge);
+        while (i < edge)
+        {
+            printf("Enter the source:");
+            scanf("%d", &src);
+            printf("Enter the destination:");
+            scanf("%d", &dest);
+            if (matrix[src - 1][dest - 1] == 1)
+            {
+                printf("Already connected\n");
+            }
+            else
+            {
+                matrix[src - 1][dest - 1] = 1;
+                i++;
+            }
+        }
+        // Printing
+        for (int i = 0; i < vertices; i++)
+        {
+            for (int j = 0; j < vertices; j++)
+            {
+                printf("%d\t", matrix[i][j]);
+            }
+            printf("\n");
+        }
+    }
+}
+int main()
+{
+    int op;
+    printf("Enter the no. of vertices:");
+    scanf("%d", &vertices);
+    // Assigning 0 to all the values of matrix
+    for (int i = 0; i < vertices; i++)
+    {
+        for (int j = 0; j < vertices; j++)
+        {
+            matrix[i][j] = 0;
+        }
+    }
+    assignvalue(matrix, vertices);
+    return 0;
+}
+        <h1>OUTPUT</h1>
+        <hr>
+        Enter the no. of vertices:4
+        Enter whether the graph is directed or undirected
+        Enter 1 for directed
+        Enter 0 for undirected
+        0
+        Enter the no. of edges:6
+        Enter the source:1
+        Enter the destination:2
+        Enter the source:2
+        Enter the destination:3
+        Enter the source:3
+        Enter the destination:4
+        Enter the source:4
+        Enter the destination:1
+        Enter the source:1
+        Enter the destination:3
+        Enter the source:2
+        Enter the destination:4
+        0       1       1       1
+        1       0       1       1
+        1       1       0       1
+        1       1       1       0
+        PS C:\DSA\Graph>   
+    </pre>
+</body>
+</html>

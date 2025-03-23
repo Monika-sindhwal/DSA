@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+       
+        #include&lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+            void reverse(char *arr,char*arr2){
+                 int size=0;
+                 
+            for(int i=0;arr[i]!='\0';i++){
+                size++;
+             }
+            
+             for(int i=0,j=size-1;arr[i]!='\0';i++,j--){
+                arr2[j]=arr[i];
+             }
+             
+             
+            }
+            int palindrone(char *arr,int size){
+            char arr2[size],i=0;
+            reverse(arr,arr2);
+            
+            while(arr[i]!='\0'){
+               if(arr[i]==arr2[i]){
+                 i++;
+               
+               }
+               else{
+                 return 0;
+               }
+            }
+            if(arr[i]=='\0'){
+                return 1;
+            }
+            
+            
+            }
+            
+            int main()
+            {
+            char str[20];
+            int i=0,key;
+            printf("Enter a string:");
+            gets(str);
+            key=palindrone(str,20);
+            if(key==0){
+                printf("Not a palindrone");
+            }
+            else
+            printf("Palindrone");
+            
+            return 0;}
+    <h1>OUTPUT</h1>
+    <hr>
+    Enter a string:AKA
+Palindrone
+    </pre>
+</body>
+</html>

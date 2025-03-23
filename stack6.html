@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            int push(char *stack,int size,int top){
+            if(top==size)
+            return -2;
+            else{
+            top++;
+            stack[top]='(';
+            return top;}
+            }
+            int pop(char *stack,int top){
+            if(top==-1)
+            return -2;
+            else{
+            top--;
+            return top;}
+            }
+            int main()
+            {
+            char eq[20],stack[20];
+            int top=-1;
+            printf("Enter the equation:");
+            gets(eq);
+            for(int i=0;eq[i]!='\0';i++){
+                if(eq[i]=='('){
+                top=push(stack,19,top);
+                }
+                  else if(eq[i]==')'){
+                      top=pop(stack,top);
+            if(top==-2){
+                break;
+            }
+                }
+            else
+             continue;}
+              
+            if(top==-1)
+                printf("Balanced");
+                else
+                printf("Not balanced");
+            
+            return 0;
+            }
+    
+    <h1>OUTPUT</h1>
+    <hr>
+Enter the equation:7+(8+0)
+Balanced</pre>
+</body>
+</html>

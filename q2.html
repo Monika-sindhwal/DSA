@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>INPUT</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;
+        #include &lt;string.h&gt;
+            int enqueue(char arr[][10],int n,int rear){
+            rear++;
+            printf("Enter the string:");
+            scanf("%s",&arr[rear]);
+            return rear;
+            }
+            int dequeue(char arr[][10],int front,int rear){
+                if(front==-1||front>rear){
+                    return -1;
+                }
+            
+                printf("%s is deleted\n",arr[front]);
+                front++;
+                return front;
+            }
+            int isEmpty(char arr[][10],int front,int rear){
+             if(front==-1||front>rear){
+                    return -1;
+                }
+                return 0;
+            }
+            int isFull(char arr[][10],int n,int rear){
+             if(rear==n-1){
+                    return -1;
+                }
+                return 0;
+            }
+            void peek(char arr[][10],int front,int rear){
+             if(front==-1||front>rear){
+                printf("Queue is empty\n");
+                }
+                else{
+                    printf("%s\n",arr[rear]);
+                }
+            }
+            int main()
+            {char arr[5][30],value;
+            int n=5,rear=-1,front=-1,op,em,full;
+            while(1){
+            printf("Enter your choice:\n1.Insert\n2.Delete\n3.Exit\n4.isEmpty\n5.isFull\n6.Peek\n");
+            scanf("%d",&op);
+            switch(op){
+                case 1:
+                if(rear==n-1){
+                  printf("Queue is full\n");}
+               else if(rear==-1&&front==-1){
+                    front=0;
+                    rear=enqueue(arr,n,rear);
+                }
+                else{
+                     rear=enqueue(arr,n,rear);
+                }
+                
+                break;
+                case 2:
+                front=dequeue(arr,front,rear);
+                if(front==-1){
+                    printf("Queue is empty\n");
+                }
+                break;
+                case 3:
+                exit(0);
+                case 4:
+            em=isEmpty(arr,front,rear);
+            if(em==-1)
+            printf("Queue is empty\n");
+            else
+            printf("Not empty\n");
+            break;
+            case 5:
+            full=isFull(arr,n,rear);
+            if(full==-1){
+                printf("Queue is  full\n");}
+                else{
+                printf("Queue is not full\n");}
+                break;
+                case 6:
+                peek(arr,front,rear);
+                break;
+                default:
+                printf("Invalid choice");
+            }
+            }
+            return 0;
+            }
+        <h1>OUTPUT</h1>
+        <hr>
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+1
+Enter the string:MONA
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+1
+Enter the string:SAI
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+1
+Enter the string:HEENA
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+1
+Enter the string:RUHI
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+1
+Enter the string:PIHU
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+1
+Queue is full
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+2
+MONA is deleted
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+2
+SAI is deleted
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+2
+HEENA is deleted
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+6
+PIHU
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+4
+Not empty
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+5
+Queue is  full
+Enter your choice:
+1.Insert
+2.Delete
+3.Exit
+4.isEmpty
+5.isFull
+6.Peek
+
+    </pre>
+</body>
+</html>

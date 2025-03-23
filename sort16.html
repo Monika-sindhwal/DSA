@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            #include&lt;string.h&gt;
+            #include&lt;time.h&gt;
+            
+            int swap(char arr[][30],char curr[30],int pre)
+            
+            { if(pre>=0 && strcmp(arr[pre],curr)>0)
+               {   
+              strcpy (arr[pre+1],arr[pre]);
+               pre--;
+               return swap(arr,curr,pre);
+               }
+               else
+                return pre;
+               
+            }
+            
+            
+            void insertion(char arr[][30],int i)
+            {   if(i>=5)
+                 return;
+               else{
+                 char curr[30];
+                strcpy(curr,arr[i]);
+                   int pre=i-1;
+                if(strcmp(arr[pre],curr)>0)
+                {  pre=swap(arr,curr,pre);
+                
+                   strcpy(arr[pre+1],curr);
+                }
+                insertion(arr,i+1);
+            }}
+            
+            
+            void main(){
+            char arr[5][30];
+            int i=0,j=1;
+            printf("enter all 5 elements of array:\n ");
+            for(i=0;i&lt;5;i++){
+             scanf("%s",&arr[i]);
+              arr[i][strlen(arr[i])]='\0';
+            }
+            
+            insertion(arr,j);
+            printf("the sorted array through insertion is:\n");
+            for(i=0;i&lt;5;i++){
+              printf("%s ",arr[i]);
+            }
+           
+            
+            Output
+            
+            /tmp/vVuFj42XDe.o
+            enter all 5 elements of array:
+             mona
+             priya
+             jyoti
+             pallawi
+             madhu
+             the sorted array through insertion is:
+            jyoti madhu mona pallawi priya 
+           
+        <h1>OUTPUT</h1>
+        <hr>
+    </pre>
+</body>
+</html>

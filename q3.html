@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>INPUT</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        struct queue{
+            int data;
+            struct queue *next;
+        };
+        struct queue *rear=NULL,*front=NULL,*nn,*temp;
+        void print(){
+            temp=front;
+            while(temp->next!=NULL){
+            printf("%d\t",temp->data);
+            temp=temp->next;}
+        }
+        void isfull(){
+            nn=(struct queue*)malloc(sizeof(struct queue));
+            if(nn=NULL)
+            printf("Queue is full");
+            else
+            printf("Queue is not full");
+        }
+        void isEmpty(){
+            if(front==NULL)
+            printf("Queue is empty");
+            else
+            printf("Queue is not empty");
+        }
+        void insert(int value){
+            nn=(struct queue*)malloc(sizeof(struct queue));
+            if(nn==NULL)
+            printf("Overflow condition");
+            else{
+                 if(rear==NULL){
+                rear=nn;
+                front=nn;
+                nn->data=value;
+                nn->next=NULL;
+            }
+            else{
+                nn->data=value;
+                nn->next=NULL;
+                rear->next=nn;
+                rear=nn;
+            }
+            }
+           
+        }
+        void delete(){
+            if(front==NULL)
+            printf("Underflow condition");
+            else if(front==rear){
+                printf("%d is popped\n",front->data);
+                front=NULL;
+            }
+            else{
+                printf("%d is popped\n",front->data);
+                front=front->next;  
+            }
+        }
+        void peek(){
+            if(rear==NULL)
+            printf("Queue is empty\n");
+            else
+            printf("%d\n",rear->data);
+        }
+        int main()
+        {int value,op;
+        while(1){
+        printf("Enter your choice:\n1.Push\n2.Pop\n3.Exit\n4.Isempty\n5.Isfull\n6.Peek\n");
+        scanf("%d",&op);
+        switch(op){
+            case 1:{
+            printf("Enter the value to be inserted:");
+            scanf("%d",&value);
+            insert(value);
+            printf("Value is inserted in the queue\n");
+             break;}
+            case 2:
+            delete();
+            break;
+            case 3:
+            exit(0);
+            case 4:
+            isEmpty();
+            break;
+            case 5:
+            isfull();
+            break;
+            case 6:
+            peek();
+            break;
+            default:
+            printf("Invalid choice\n");
+            
+        }}
+        return 0;
+        
+        }
+        <h1>OUTPUT</h1>
+        <hr>
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        4
+        Queue is emptyEnter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        5
+        Queue is not fullEnter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        1
+        Enter the value to be inserted:12
+        Value is inserted in the queue
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        1
+        Enter the value to be inserted:24
+        Value is inserted in the queue
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        1
+        Enter the value to be inserted:36
+        Value is inserted in the queue
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        1
+        Enter the value to be inserted:48
+        Value is inserted in the queue
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        6
+        48
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        2
+        12 is popped
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        2
+        24 is popped
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        2
+        36 is popped
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        2
+        48 is popped
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        1
+        Enter the value to be inserted:9
+        Value is inserted in the queue
+        Enter your choice:
+        1.Push
+        2.Pop
+        3.Exit
+        4.Isempty
+        5.Isfull
+        6.Peek
+        3
+        PS C:\DSA\Queue>         
+    </pre> 
+</body>
+</html>

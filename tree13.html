@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+   <pre>
+    <h1>CODE</h1>
+    <hr>
+    // kth smallest value
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_SIZE 100
+
+int bst[MAX_SIZE]; 
+int root = -1; 
+
+void insert(int key)
+{
+    if (root == -1)
+    {
+        root = 0;
+        bst[root] = key;
+    }
+    else
+    {
+        int current = root;
+        while (1)
+        {
+            if (key < bst[current])
+            {
+                if (bst[current * 2 + 1] == 0)
+                {
+                    bst[current * 2 + 1] = key;
+                    break;
+                }
+                else
+                {
+                    current = current * 2 + 1;
+                }
+            }
+            else
+            {
+                if (bst[current * 2 + 2] == 0)
+                {
+                    bst[current * 2 + 2] = key;
+                    break;
+                }
+                else
+                {
+                    current = current * 2 + 2;
+                }
+            }
+        }
+    }
+}
+
+void inorder(int node)
+{
+    if (node >= MAX_SIZE || bst[node] == 0)
+    {
+        return;
+    }
+
+    inorder(node * 2 + 1);
+    printf("%d ", bst[node]);
+    inorder(node * 2 + 2);
+}
+void kthsmallest(int k){
+    int arr[15],size=0;
+    if(root==-1){
+        printf("Tree is empty\n");
+    }
+    else{
+        int current=root;
+       while(current&lt;MAX_SIZE){
+           if(bst[current]==0){
+               break;
+           }
+          arr[size]=bst[current];
+          size++;
+          current=((current*2)+1);
+       } 
+    }
+   if(size>=k)
+  {  printf("%d is the kth smallest value\n",arr[size-k]);}
+    else{
+        printf("doesn't exist!\n");
+    }
+}
+
+int main()
+{
+    int op, value,k;
+    for (int i = 0; i < 15; i++)
+    {
+        bst[i] = 0;
+    }
+    while (1)
+    {
+        printf("Enter 1 option:\n1.Insert\n2.To find K-th smallest element\n3.inorder\n4.exit\n");
+        scanf("%d", &op);
+        switch (op)
+        {
+        case 1:
+            printf("Enter the value to be inserted:");
+            scanf("%d", &value);
+            insert(value);
+            break;
+        case 2:
+        printf("Enter which kth smallest value you want to find:");
+        scanf("%d",&k);
+           kthsmallest(k);
+            break;
+        case 3:
+            inorder(root);
+            break;
+        case 4:
+            exit(0);
+            break;
+       
+        default:
+            printf("Invalid input!");
+        }
+    }
+    return 0;
+}
+    <h1>OUTPUT</h1>
+    <hr>
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+1
+Enter the value to be inserted:100
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+1
+Enter the value to be inserted:90
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+1
+Enter the value to be inserted:80
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+1
+Enter the value to be inserted:70
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+1
+Enter the value to be inserted:110
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+1
+Enter the value to be inserted:120
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+2
+Enter which kth smallest value you want to find:1
+70 is the kth smallest value
+Enter 1 option:
+1.Insert
+2.To find K-th smallest element
+3.inorder
+4.exit
+4
+PS C:\DSA\Trees> 
+   </pre> 
+</body>
+</html>

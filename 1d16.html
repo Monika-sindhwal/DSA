@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        int main()
+        {
+            int arr[5],i,arr2[5];
+            printf("Enter 5 elements of the first array:");
+        for(i=0;i&lt;5;i++)
+        scanf("%d",&arr[i]);
+        printf("Enter 5 elements of the second array:");
+        for(i=0;i&lt;5;i++)
+        scanf("%d",&arr2[i]);
+        for(i=0;i&lt;5;i++){
+            if(arr[i]!=arr2[i]){
+                printf("Not same");
+                break;
+            }}
+        if(i==5)
+        printf("Both arrays are same");
+            
+        
+        
+        
+        
+        return 0;
+        }
+        <h1>OUTPUT</h1>
+        <hr>
+        Enter 5 elements of the first array:1 4 5 7 2
+        Enter 5 elements of the second array:1 4 5 7 2
+        Both arrays are same  
+    </pre>
+</body>
+</html>

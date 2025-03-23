@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        void duplicate(int arr[],int temp[],int size){
+            int i,j,k=size-1;
+            for(j=0;j&lt;size-1;j++){
+         if(arr[k]==arr[j]){
+           arr[k]=0;
+           arr[j]=0;}
+            }
+            for(i=0;i&lt;size-1;i++){
+            for(j=i+1;j&lt;size;j++){
+           if(arr[i]==arr[j]){
+           arr[i]=0;
+           arr[j]=0;}
+            }
+            }
+        
+            for(int i=0;i&lt;size;i++)
+            printf("%d\t",arr[i]);
+            
+        }
+        
+        int main()
+        {
+            int arr[5],i,temp[5],size2;
+            for(i=0;i&lt;5;i++){
+                printf("Enter the %d element of the array:",i+1);
+                scanf("%d",&arr[i]);
+            }
+            duplicate(arr,temp,5);
+           
+        
+        
+        return 0;
+        }
+        <h1>OUTPUT</h1>
+        <hr>
+        Enter the 1 element of the array:1
+        Enter the 2 element of the array:2
+        Enter the 3 element of the array:0
+        Enter the 4 element of the array:1
+        Enter the 5 element of the array:2
+        0       0       0       0       0
+    </pre>
+</body>
+</html>

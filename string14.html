@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+
+            int main() {
+                char str[30];
+            
+                printf("Enter a string: ");
+                gets(str);
+            
+                
+                for (int i = 0; str[i] != '\0'; i++) {
+                    if (str[i + 1] != '\0') {
+                        int difference = str[i + 1] - str[i];
+                        printf("Difference between '%c' and '%c' is %d\n", str[i], str[i + 1], difference);
+                    }
+                }
+            
+                return 0;
+            }
+            
+    <h1>OUTPUT</h1>
+    <hr>
+Enter a string: welcome
+Difference between 'w' and 'e' is -18
+Difference between 'e' and 'l' is 7
+Difference between 'l' and 'c' is -9
+Difference between 'c' and 'o' is 12
+Difference between 'o' and 'm' is -2
+Difference between 'm' and 'e' is -8
+    </pre>
+</body>
+</html>

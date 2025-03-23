@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+    <hr>
+    #include&lt;stdio.h&gt;
+        #include&lt;time.h&gt;
+        
+        int insertion(int arr[],int i)
+        {   if(i>=5)
+             return;
+           else{
+             int curr=arr[i];
+               int pre=i-1;
+            if(curr&lt;arr[pre])
+            {  pre=swap(arr,curr,pre);
+            
+                arr[pre+1]=curr;
+            }
+            insertion(arr,i+1);
+        }}
+        
+        int swap(int *arr,int curr,int pre)
+        
+        { if(pre>=0 && curr&lt;arr[pre])
+           {   
+           arr[pre+1]=arr[pre];
+           pre--;
+           return swap(arr,curr,pre);
+           }
+           else
+            return pre;
+           
+        }
+        
+        
+        void main(){
+        int arr[5];
+        int curr,pre,i=0,j=1;
+        printf("enter all 5 elements of array:\n ");
+        for(i=0;i&lt;5;i++){
+         scanf("%d",&arr[i]);
+        
+        }
+        clock_t start_time=clock();
+        
+        insertion(arr,j);
+        
+        clock_t end_time=clock();
+         
+        printf("the sorted array through insertion is:\n");
+        for(i=0;i&lt;5;i++){
+          printf("%d ",arr[i]);
+        }
+        
+        
+         
+        }
+<h1>OUTPUT</h1>
+<hr>
+enter all 5 elements of array:
+7 8 65 8 0
+ the sorted array through insertion is:
+0 7 8 8 65 
+</pre>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            #include&lt;stdlib.h&gt;
+            struct tree
+{
+    int data;
+    struct tree *left;
+    struct tree *right;
+};
+struct tree *p, *start, *nn, *search, *prev, *root;
+// code to find inoreder successor
+void inordersuccessor(struct tree *root)
+{  
+    
+    while (root->left != NULL)
+        root = root->left;
+    printf("%d\n",root->data);
+}
+// code to find inoreder predecessor
+void inorderpredecessor(struct tree *root)
+{   
+    
+    while (root->right != NULL)
+        root = root->right;
+    printf("%d\n",root->data);
+}
+struct tree* searchnode(struct tree *start, int value)
+{
+    
+     if (start->data == value)
+    {
+        return start;
+    }
+    else if (start->data > value)
+    {
+        searchnode(start->left, value);
+    }
+    else
+    {
+
+        searchnode(start->right, value);
+    }
+}
+// Code for insertion
+void insert()
+{
+    int value;
+    printf("Enter the value of node which you want to insert:");
+    scanf("%d", &value);
+    if (start == NULL)
+    {
+        start = (struct tree *)malloc(sizeof(struct tree));
+        start->data = value;
+        start->left = start->right = NULL;
+    }
+    else
+    {
+        nn = (struct tree *)malloc(sizeof(struct tree));
+        nn->data = value;
+        nn->left = nn->right = NULL;
+        prev = NULL;
+        search = start;
+
+        while (search != NULL)
+        {
+            if (search->data > value)
+            {
+                prev = search;
+                search = search->left;
+            }
+            else if (search->data < value)
+            {
+                prev = search;
+                search = search->right;
+            }
+        }
+        if (prev->data > value)
+        {
+            printf("inserted at left");
+            prev->left = nn;
+        }
+        if (prev->data < value)
+        {
+            printf("inserted at right");
+            prev->right = nn;
+        }
+    }
+}
+
+void inorder(struct tree *root)
+{
+    if (root != NULL)
+    {
+        inorder(root->left);
+        printf(" %d ", root->data);
+        inorder(root->right);
+    }
+}
+
+int main()
+{
+    int op, value;
+    while (1)
+    {
+        printf("Enter 1 option:\n1.Insert\n2.inorder successor\n3inorder predecessor\n4.inorder\n.5.exit\n");
+        scanf("%d", &op);
+        switch (op)
+        {
+        case 1:
+            insert();
+            break;
+        case 2:
+         
+    printf("Enter the value whose inorder succesor you want to find:");
+    scanf("%d",&value);
+        root =searchnode(start,value);
+        root=root->right;
+            inordersuccessor(root);
+            break;
+        case 3:
+         
+    printf("Enter the value whose inorder predcessor you want to find:");
+    scanf("%d",&value);
+        root=searchnode(start,value);
+    root=root->left;
+            inorderpredecessor(root);
+            break;
+        case 4:
+            inorder(start);
+            break;
+        case 5:
+            exit(0);
+            break;
+       
+        }
+    }
+    return 0;
+}
+            
+        <h2>OUTPUT</h2>
+        <hr>
+Enter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+1
+Enter the value of node which you want to insert:100
+Enter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+1
+Enter the value of node which you want to insert:90
+inserted at leftEnter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+1
+Enter the value of node which you want to insert:110
+inserted at rightEnter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+1
+Enter the value of node which you want to insert:70
+inserted at leftEnter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+1
+Enter the value of node which you want to insert:80
+inserted at rightEnter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+1
+Enter the value of node which you want to insert:135
+inserted at rightEnter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+2
+Enter the value whose inorder succesor you want to find:100
+110
+Enter 1 option:
+1.Insert
+2.inorder successor
+3inorder predecessor
+4.inorder
+.5.exit
+
+    </pre>
+</body>
+</html>

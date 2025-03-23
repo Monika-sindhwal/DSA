@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            int ls(int arr[], int size, int key)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    if (arr[i] == key)
+                        return i;
+                }
+                return -1; // A return statement ends the execution of a function, and returns control to the calling function.
+            }
+            int main()
+            {
+                int arr[5], key, loc;
+                printf("Enter 5 elements of the array:");
+                for (int i = 0; i < 5; i++)
+                    scanf("%d", &arr[i]);
+                printf("Enter the element you want to search:");
+                scanf("%d", &key);
+                loc = ls(arr, 5, key);
+                if (loc == -1)
+                    printf("%d not found in the array", key);
+                else
+                    printf("%d fount at index %d in the array", key, loc);
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter 5 elements of the array:6 7 6 4 8
+Enter the element you want to search:7
+7 fount at index 1 in the array
+    </pre>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            int linear(int *arr, int num, int key)
+            {
+                if (num == 0)
+                    return -1;
+                else if (arr[num - 1] == key)
+                    return num - 1;
+                else
+                    linear(arr, num - 1, key);
+            }
+            int main()
+            {
+                int arr[5], i, n = 5, key, k;
+                printf("Enter the elements of the array\n");
+                for (i = 0; i < n; i++)
+                {
+                    printf("Enter the %d element:", i + 1);
+                    scanf("%d", &arr[i]);
+                }
+                printf("Enter the element you want to find:");
+                scanf("%d", &key);
+                k = linear(arr, n, key);
+                if (k == -1)
+                    printf("Element not found\n");
+                else
+                    printf("Found at index %d", k);
+            
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+            Enter the elements of the array
+            Enter the 1 element:3
+            Enter the 2 element:6
+            Enter the 3 element:76
+            Enter the 4 element:6
+            Enter the 5 element:4
+            Enter the element you want to find:76
+            Found at index 2          
+    </pre>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+            
+            int main() {
+                char inputString[20];
+                char reversedString[20];
+                int j;
+            
+                printf("Enter a string: ");
+                gets(inputString);
+            
+                int length = strlen(inputString);
+                for (int i = 0,j=length-1; i < length; i++,j--) {
+                    reversedString[i] = inputString[j];
+                }
+            
+                reversedString[length] = '\0';
+            
+                printf("Original string: %s\n", inputString);
+                printf("Reversed string: %s\n", reversedString);
+            
+                return 0;
+            }
+            
+    <h1>OUTPUT</h1>
+    <hr>
+Enter a string: hello
+Original string: hello
+Reversed string: olleh
+
+    </pre>
+</body>
+</html>

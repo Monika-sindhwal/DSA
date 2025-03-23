@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <HR></HR>
+        #include &lt;stdio.h&gt;
+
+            int j = -1;
+            
+            void win(char a[][3]) {
+                if ((a[0][0] == 'o' && a[0][1] == 'o' && a[0][2] == 'o') ||
+                    (a[1][0] == 'o' && a[1][1] == 'o' && a[1][2] == 'o') ||
+                    (a[2][0] == 'o' && a[2][1] == 'o' && a[2][2] == 'o') ||
+                    (a[0][0] == 'o' && a[1][0] == 'o' && a[2][0] == 'o') ||
+                    (a[0][1] == 'o' && a[1][1] == 'o' && a[2][1] == 'o') ||
+                    (a[0][2] == 'o' && a[1][2] == 'o' && a[2][2] == 'o') ||
+                    (a[0][0] == 'o' && a[1][1] == 'o' && a[2][2] == 'o') ||
+                    (a[2][0] == 'o' && a[1][1] == 'o' && a[0][2] == 'o')) {
+                    printf("Player 'O' wins!\n");
+                    exit(0);
+                } else if ((a[0][0] == 'x' && a[0][1] == 'x' && a[0][2] == 'x') ||
+                           (a[1][0] == 'x' && a[1][1] == 'x' && a[1][2] == 'x') ||
+                           (a[2][0] == 'x' && a[2][1] == 'x' && a[2][2] == 'x') ||
+                           (a[0][0] == 'x' && a[1][0] == 'x' && a[2][0] == 'x') ||
+                           (a[0][1] == 'x' && a[1][1] == 'x' && a[2][1] == 'x') ||
+                           (a[0][2] == 'x' && a[1][2] == 'x' && a[2][2] == 'x') ||
+                           (a[0][0] == 'x' && a[1][1] == 'x' && a[2][2] == 'x') ||
+                           (a[2][0] == 'x' && a[1][1] == 'x' && a[0][2] == 'x')) {
+                    printf("Player 'X' wins!\n");
+                    exit(0);
+                }
+            }
+            
+            void input(char a[][3], char ch, char c) {
+                if (ch == '1') {
+                    a[0][0] = c;
+                } else if (ch == '2') {
+                    a[0][1] = c;
+                } else if (ch == '3') {
+                    a[0][2] = c;
+                } else if (ch == '4') {
+                    a[1][0] = c;
+                } else if (ch == '5') {
+                    a[1][1] = c;
+                } else if (ch == '6') {
+                    a[1][2] = c;
+                } else if (ch == '7') {
+                    a[2][0] = c;
+                } else if (ch == '8') {
+                    a[2][1] = c;
+                } else if (ch == '9') {
+                    a[2][2] = c;
+                }
+            }
+            
+            int validate(char ar[], char cha) {
+                for (int k = 0; k <= j; k++) {
+                    if (ar[k] == cha) {
+                        printf("Place already filled!\n");
+                        return 0;
+                    }
+                }
+            
+                j++;
+                ar[j] = cha;
+                return 1;
+            }
+            
+            int main() {
+                char arr[3][3], inp, ar[9];
+                int i, l;
+            
+                for (i = 0; i < 3; i++) {
+                    for (l = 0; l < 3; l++) {
+                        arr[i][l] = ' ';
+                    }
+                }
+            
+                printf("===========TIC TAC TOE===========\n\n\n\n");
+                printf("Enter from the following to input at that position:\n\n");
+                printf("\t\t\t1 | 2 | 3\n\t\t\t____\n\t\t\t4 | 5 | 6\n\t\t\t____\n\t\t\t7 | 8 | 9\n\n\n");
+            
+                for (i = 0; i < 9; i++) {
+                    if (i % 2 == 0) {
+                        printf("Player 'X' enter your turn:\n");
+                        scanf(" %c",&inp);
+                       
+                        if (validate(ar, inp) == 0) {
+                            i--;
+                            continue;
+                        }
+                        input(arr, inp, 'x');
+                    } else {
+                        printf("Player 'O' enter your turn:\n");
+                        scanf(" %c",&inp);
+                        
+                        if (validate(ar, inp) == 0) {
+                            i--;
+                            continue;
+                        }
+                        input(arr, inp, 'o');
+                    }
+            
+            if (!(inp >= '1' && inp <= '9')) {
+                        printf("Invalid input!\n");
+                        i--;
+                        continue;
+                    }
+            
+                    printf("\n%c | %c | %c\n____\n%c | %c | %c\n____\n%c | %c | %c\n",
+                           arr[0][0], arr[0][1], arr[0][2], arr[1][0], arr[1][1], arr[1][2], arr[2][0], arr[2][1], arr[2][2]);
+                    if (i >= 4) {
+                        win(arr);
+                    }
+                }
+                printf("It's a draw!\n");
+            
+                return 0;
+            }
+            
+            
+            
+            
+            
+            
+        <h1>OUTPUT</h1>
+        ===========TIC TAC TOE===========
+
+
+
+Enter from the following to input at that position:
+
+                        1 | 2 | 3
+                        ____
+                        4 | 5 | 6
+                        ____
+                        7 | 8 | 9
+
+
+Player 'X' enter your turn:
+2
+
+  | x |
+____
+  |   |
+____
+  |   |
+Player 'O' enter your turn:
+4
+
+  | x |
+____
+o |   |
+____
+  |   |
+Player 'X' enter your turn:
+4
+Place already filled!
+Player 'X' enter your turn:
+6
+
+  | x |
+____
+o |   | x
+____
+  |   |
+Player 'O' enter your turn:
+7 
+
+  | x |
+____
+o |   | x
+____
+o |   |
+Player 'X' enter your turn:
+9
+
+  | x |
+____
+o |   | x
+____
+o |   | x
+Player 'O' enter your turn:
+1
+
+o | x |
+____
+o |   | x
+____
+o |   | x
+Player 'O' wins!
+PS C:\c>
+        <HR></HR>
+    </pre>
+</body>
+</html>

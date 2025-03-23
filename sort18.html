@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        //Mergesort string through recursion
+#include&lt;stdio.h&gt;
+ #define N 5
+ #include&lt;time.h&gt;
+void sort(char arr[][20],int low,int mid,int high);
+ 
+void merge(char arr[][20],int low,int high)
+{
+    int mid;
+    if(low&lt;high)
+    {
+        mid=(low+high)/2;
+        merge(arr,low,mid);
+        merge(arr,mid+1,high);
+        sort(arr,low,mid,high);
+    }
+}
+
+void sort(char arr[][20],int low,int mid,int high)
+{
+    int m,s=low,t=high;
+    
+    char temp[N][20]; 
+    int i=low;
+    int k=low;
+    m=mid+1;
+    while(low<=mid && m<=high)
+    {
+        if(strcmp(arr[low],arr[m])<=0)
+        {
+           strcpy(temp[i],arr[low]);
+            low++;
+            i++;
+        }
+        else
+        {
+           strcpy(temp[i],arr[m]);
+            m++;
+            i++;
+        }
+        
+    }
+    
+    while(low<=mid)
+    {
+        strcpy(temp[i],arr[low]);
+        i++;
+        low++;
+    }
+    
+while(m<=high)
+    {
+        strcpy(temp[i],arr[m]);
+        i++;
+        m++;
+    }
+    
+    for(k=s;k<=t;k++)
+    strcpy(arr[k],temp[k]);
+}
+
+
+void main()
+{
+int i,len;
+char arr[N][20];
+printf("Enter 5 strings:");
+for(i=0;i&lt;N;i++){
+    scanf("%s",&arr[i]);
+}
+printf("\narray is:\n");
+for(i=0;i&lt;N;i++)
+{
+    printf("%s\t",arr[i]);
+}
+merge(arr,0,4);
+printf("\nthe sorted array is\n");
+for(i=0;i&lt;5;i++)
+{
+    printf("%s\t",arr[i]);
+}
+ 
+}
+<h1>OUTPUT</h1>
+        <hr>
+        Enter 5 strings:kirti
+        monika
+        savu
+        priya
+        sunana
+        array is:
+        kirti	monika	savu	priya	sunana	
+        the sorted array is
+        kirti	monika	priya	savu	sunana	  
+    </pre>
+</body>
+</html>

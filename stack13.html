@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+
+            void towerOfHanoi(int n, char source, char help, char dest) {
+                if (n == 1) {
+                   printf("Move disk 1 from %c to %c\n", source, dest);
+                    return;
+                }
+            
+                towerOfHanoi(n - 1, source, dest, help);
+                printf("Move disk %d from %c to %c\n", n, source, dest);
+                towerOfHanoi(n - 1, help, source, dest);
+            }
+            
+            int main() {
+                int n;
+                printf("Enter the number of disks: ");
+                scanf("%d", &n);
+                
+                towerOfHanoi(n, 'A', 'B', 'C');
+                
+                return 0;
+            }
+    
+    <h1>OUTPUT</h1>
+    <hr>
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+    </pre>
+</body>
+</html>

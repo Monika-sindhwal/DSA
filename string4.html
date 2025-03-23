@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;   
+void main(){
+char s[20];
+int i;
+puts("Enter a string : ");
+gets(s);
+for(i=0;s[i]!='\0';i++){
+if(s[i]>=65 && s[i]<=90 || s[i]>=97 && s[i]<=122){
+if(i==0 || s[i-1]==''){
+if(s[0]>=97 && s[0]<=122){
+        s[0]=s[0]-32;
+}}
+else{
+    if(s[i]>=65 && s[i]<=90){
+        s[i]=s[i]+32;
+        }}}}
+printf("The String in Title case is : %s \n",s);
+}
+    
+    <h1>OUTPUT</h1>
+    <hr>
+Enter a string :
+hello good night
+The String in Title case is : Hello good night
+    </pre>
+</body>
+</html>

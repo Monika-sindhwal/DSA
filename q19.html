@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+   <pre><h1>CODE</h1>
+    <hr>
+    #include &lt; stdio.h>
+    #include &lt;string.h>
+    #include &lt;stdlib.h>
+        
+        int front = -1;
+        int rear = -1;
+        int queue[5];
+        
+        void enqueue(int val) {
+            if (size == MAX) {
+                printf("Queue is Full!");
+                return;
+            }
+            size++;
+            if (front == -1 && rear == -1) {
+                //enqueueing first time
+                front = rear = 0;
+                queue[rear] = val;
+                return;
+            }
+            rear++;
+            queue[rear] = val;
+        }
+        
+        int dequeue() {
+            if (size == 0) {
+                printf("Queue is Empty!");
+                return -1;
+            }
+            if (size == 1) {
+                int val = queue[front];
+                front = rear = -1;
+                size = 0;
+                return val;
+            }
+            int val = queue[front];
+            for (int i = front + 1; i <= rear; i++) {
+                queue[i - 1] = queue[i];
+            }
+            rear--;
+            size--;
+            return val;
+        }
+        
+        void display() {
+            if (size == 0) {
+                printf("Queue is Empty!\n");
+                return;
+            }
+            for (int i = front; i <= rear; i++) {
+                printf("%d ", queue[i]);
+            }
+            printf("\n");
+        }
+        
+        int peek() {
+            if (size == 0) {
+                printf("Queue is Empty!\n");
+                return -1;
+            }
+            return queue[front];
+        }
+        
+        int isEmpty() {
+            if (size == 0) {
+                return 1;
+            }
+            return 0;
+        }
+        
+        void reverseQueue(int size) {
+            int i = 0;
+            int arr[size];
+            while (i < size) {
+                arr[i] = dequeue();
+                i++;
+            }
+            for (int j = size - 1; j >= 0; j--) {
+                enqueue(arr[j]);
+            }
+        }
+        
+        int main() {
+            int val;
+            printf("Enter the 5 elements of queue:\n");
+            for (int i = 0; i < 5; i++) {
+                scanf("%d", &val);
+                enqueue(val);
+            }
+            reverseQueue(5);
+            printf("Reversed queue is:\n");
+            display();
+        
+            return 0;
+        }
+   <h1>OUTPUT</h1>
+<hr>
+Enter the 5 elements of queue:
+1 2 3 4 5
+Reversed queue is:
+5 4 3 2 1</pre> 
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        //selection sort string through recursion
+        #include&lt;stdio.h&gt;
+        #include&lt;time.h&gt;
+        #include&lt;string.h&gt;
+        #define n 5
+        
+        void sort(char arr[][20],int i, int j){
+            if(i&lt;n-1){
+                j=i+1;
+            swap(arr,j,i);
+            i=i+1;
+            return sort(arr,i,j);
+            }
+            else
+             return;
+        }
+        
+        void swap(char arr[][20],int j,int i){
+            char temp[20];
+                
+        if(j&lt;n)
+        {
+        if(strcmp(arr[i],arr[j])>0){
+           strcpy(temp,arr[j]);
+           strcpy(arr[j],arr[i]);
+           strcpy(arr[i],temp);}
+           j=j+1;
+            return swap(arr,j,i);
+        }
+        else
+          return;
+        }
+        
+        void main(){
+          int i,j=0,temp;
+          char arr[n][20];
+        printf("enter all 5 string of array: ");
+        for(i=0;i&lt;n;i++){
+         scanf("%s",&arr[i]);
+        }
+        sort(arr,j,j);
+        
+        for(i=0;i&lt;n;i++){
+         printf("%s\t",arr[i]);
+        }
+        
+        } 
+        <h1>OUTPUT</h1>
+enter all 5 string of array: jyoti
+kiara
+gi
+naik
+laira
+gi	jyoti	kiara	laira	naik
+        <hr>
+    </pre>
+</body>
+</html>

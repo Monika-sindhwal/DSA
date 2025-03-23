@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            int sumofDigit(int num)
+            {
+                if (num == 0)
+                    return 0;
+                else
+                    return (num % 10) + sumofDigit(num / 10);
+            }
+            int main()
+            {
+                int num;
+                printf("Enter the no.:");
+                scanf("%d", &num);
+                printf("The sum of digit of entered no. is %d", sumofDigit(num));
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter 5 elements of the array
+Enter 1 element:56
+Enter 2 element:7
+Enter 3 element:0
+Enter 4 element:67
+Enter 5 element:5
+The smallest element in the entered array is 0
+    
+    
+    </pre>
+</body>
+</html>

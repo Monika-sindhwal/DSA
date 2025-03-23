@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        int main(){
+            int i=0;
+            int arr[6];
+            printf("Enter the 6 elements of the array:");
+            for ( int i = 0; i &lt;6; i++)
+            {
+                scanf("%d",&arr[i]);
+            }
+            for(i=1;i&lt;5;i++){
+                if(arr[i]&lt;arr[i+1]&&arr[i]&lt;arr[i-1]){
+                    printf("%d is a local minima\n",arr[i]);
+                }
+            }
+            }
+        <h1>OUTPUT</h1>
+        <hr>
+        Enter the 6 elements of the array:1 2 0 3 1 5
+        0 is a local minima
+        1 is a local minima       
+    </pre>
+</body>
+</html>

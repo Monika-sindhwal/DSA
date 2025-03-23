@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+            int push(char *stack,int top,char value){
+                top++;
+                stack[top]=value;
+                return top;
+            }
+            int pop(char *stack,int top){
+                
+                printf("%c\t",stack[top]);
+                top--;
+                return top;
+            }
+            int main()
+            {
+            char name[20];
+            printf("Enter the string:");
+            gets(name);
+            char stack[20];
+            int top=-1;
+            for(int i=0;name[i]!='\0';i++){
+            top=push(stack,top,name[i]);
+            
+            }
+            while(top!=-1){
+            top=pop(stack,top);
+            }
+            
+            return 0;
+            }
+    
+    <h1>OUTPUT</h1>
+    <hr>
+Enter the string:monika
+a       k       i       n       o       m
+    </pre>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+    <h1>CODE</h1>
+    <hr>
+    
+        #include &lt;stdio.h&gt;
+            void assign(int arr[4][2], int r, int c)
+            {
+                int i, j;
+            
+                for (i = 0; i < r; i++)
+                {
+                    printf("Enter the elements of %d row:", i + 1);
+                    for (j = 0; j < c; j++)
+                    {
+                        scanf("%d", &(arr[i][j]));
+                    }
+                }
+            }
+            int main()
+            {
+                int arr[4][2], i, j;
+                int rows = 4, cols = 2;
+                assign(arr, rows, cols);
+                printf("The matrix is:\n");
+                for (i = 0; i < rows; i++)
+                {
+                    for (j = 0; j < cols; j++)
+                    {
+                        printf("%d\t", arr[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter the elements of 1 row:1 2
+Enter the elements of 2 row:3 4
+Enter the elements of 3 row:5 6
+Enter the elements of 4 row:7 8
+The matrix is:
+1       2
+3       4
+5       6
+7       8
+    </pre>
+    
+</body>
+</html>

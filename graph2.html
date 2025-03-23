@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        // Adjancey list
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include<stdio.h>
+    struct edge
+    {
+        int data;
+        struct edge *next2;
+    };
+    struct vertix
+    {
+        int data;
+        struct vertix *next;
+        struct edge *ptr;
+    };
+    struct vertix *start = NULL, *search, *nn, *t, *pre;
+    struct edge *s, *nn2, *pre2;
+    void insertvertex()
+    {
+        if (start == NULL)
+        {
+            start = (struct vertix *)malloc(sizeof(struct vertix));
+            printf("Enter the vertex:");
+            scanf("%d", &(start->data));
+            start->next = NULL;
+            start->ptr = NULL;
+        }
+        else
+        {
+            search = start;
+            nn = (struct vertix *)malloc(sizeof(struct vertix));
+            while (search->next != NULL)
+            {
+                search = search->next;
+            }
+            search->next = nn;
+            printf("Enter the vertex:");
+            scanf("%d", &(nn->data));
+            nn->next = NULL;
+            nn->ptr = NULL;
+        }
+    }
+    void insertedge()
+    {
+        int src, dest;
+        printf("Enter the source and destination:");
+        scanf("%d %d", &src, &dest);
+        search = start;
+        while (search != NULL)
+        {
+            if (search->data == src)
+                break;
+            search = search->next;
+        }
+        if (search == NULL)
+        {
+            printf("Entered source is not available");
+            return;
+        }
+        t = start;
+        while (t != NULL)
+        {
+            if (t->data == dest)
+                break;
+            t = t->next;
+        }
+        if (t == NULL)
+        {
+            printf("Entered dest is not available");
+            return;
+        }
+        nn2 = (struct edge *)malloc(sizeof(struct edge));
+        nn2->data = dest;
+        nn2->next2 = NULL;
+        if (search->ptr == NULL)
+        {
+            search->ptr = nn2;
+        }
+        else
+        {
+            s = search->ptr;
+            while (s->next2 != NULL)
+            {
+                s = s->next2;
+            }
+            s->next2 = nn2;
+        }
+    }
+    void deletevertex()
+    {
+        int vertix;
+        printf("Enter the vertix you want to delete:");
+        scanf("%d", &vertix);
+        
+        search = start;
+        while (search != NULL)
+        {
+            s = search->ptr;
+            pre2 = NULL; 
+            while (s != NULL)
+            {
+                if (s->data == vertix)
+                {
+                    if (pre2 == NULL)
+                    {
+                        search->ptr = s->next2;
+                        free(s);
+                        s = search->ptr;
+                    }
+                    else
+                    {
+                        pre2->next2 = s->next2;
+                        free(s);
+                        s = pre2->next2;
+                    }
+                }
+                else
+                {
+                    pre2 = s;
+                    s = s->next2;
+                }
+            }
+            search = search->next;
+        }
+    
+        
+        search = start;
+        pre = NULL;
+        while (search != NULL)
+        {
+            if (search->data == vertix)
+            {
+                if (pre == NULL)
+                {
+                    start = search->next;
+                    free(search);
+                }
+                else
+                {
+                    pre->next = search->next;
+                    free(search);
+                }
+                return;
+            }
+            pre = search;
+            search = search->next;
+        }
+        printf("Vertix is not found");
+    }
+    
+    void deleteedge()
+    {
+        int src, dest;
+        printf("Enter the source and destination of edge you want to delete:");
+        scanf("%d %d", &src, &dest);
+        search = start;
+        while (search != NULL)
+        {
+            if (search->data == src)
+                break;
+            search = search->next;
+        }
+        if (search == NULL)
+        {
+            printf("Entered source is not available");
+            return;
+        }
+        t = start;
+        while (t != NULL)
+        {
+            if (t->data == dest)
+                break;
+            t = t->next;
+        }
+        if (t == NULL)
+        {
+            printf("Entered dest is not available");
+            return;
+        }
+        s = search->ptr;
+        if (s == NULL)
+        {
+            printf("Entered edge is not available");
+        }
+        else
+        {
+            while (s != NULL)
+            {
+                pre2 = s;
+                if (s->data == dest)
+                {
+                    break;
+                }
+                s = s->next2;
+            }
+            if (s == NULL)
+            {
+                printf("Entered edge doesn't exist");
+            }
+            else
+            {
+                pre2->next2 = s->next2;
+                free(s);
+            }
+        }
+    }
+    void print()
+    {
+        search = start;
+    
+        while (search != NULL)
+        {
+            printf("%d  ", search->data);
+            s = search->ptr;
+            while (s != NULL)
+            {
+                printf("||%d\t", s->data);
+                s = s->next2;
+            }
+            printf("\n");
+            search = search->next;
+        }
+    }
+    int main()
+    {
+        int op;
+        while (1)
+        {
+            printf("Enter 1 choice:\n1.Insert vertix\n2.Insert edge\n3.Delete edge\n4.Delete vertex\n5.Print\n6.exit\n");
+            scanf("%d", &op);
+            switch (op)
+            {
+            case 1:
+                insertvertex();
+                break;
+            case 2:
+                insertedge();
+                break;
+            case 3:
+                deleteedge();
+                break;
+            case 4:
+                deletevertex();
+                break;
+            case 5:
+                print();
+                break;
+            case 6:
+                exit(0);
+            }
+        }
+        return 0;
+    }
+        <h1>OUTPUT</h1>
+        <hr>
+        /tmp/8dccE2FAro.o
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        1
+        Enter the vertex:1
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        1
+        Enter the vertex:2
+        Enter 1 choice:1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        1
+        Enter the vertex:3
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        2
+        Enter the source and destination:1 2
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        2 
+        Enter the source and destination:1 3
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        4
+        Enter the vertix you want to delete:2
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        5
+        1  ||3	
+        3  
+        Enter 1 choice:
+        1.Insert vertix
+        2.Insert edge
+        3.Delete edge
+        4.Delete vertex
+        5.Print
+        6.exit
+        
+    </pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+   <pre><h1>CODE</h1>
+    <hr>
+    #include &lt;stdio.h&gt;
+        void binary(int num)
+        {
+            if (num > 1)
+                binary(num / 2);
+            printf("%d", num % 2);
+        }
+        int main()
+        {
+            int num;
+            printf("Enter the number:");
+            scanf("%d", &num);
+            binary(num);
+            return 0;
+        }
+        <h1>OUTPUT</h1>
+        Enter the number:56
+        111000      
+</pre> 
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre><h1>CODE</h1>
+        <hr>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;   
+        void main(){
+            char s[20];
+            int i;
+            puts("Enter a string : ");
+            gets(s);
+            for(i=0;s[i]!='\0';i++){
+            if(s[i]>='A' && s[i]<='Z')
+                    s[i]=s[i]+32;
+            else if(s[i]>='a' && s[i]<='z')
+                    s[i]=s[i]-32;
+            }       
+            printf("The Toggled Case is : %s \n",s);
+            }
+            
+    <h1>OUTPUT</h1>
+    <hr>
+Enter a string : 
+This is A
+The Toggled Case is : tHIS IS a 
+
+    </pre>
+</body>
+</html>

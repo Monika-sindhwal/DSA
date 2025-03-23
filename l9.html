@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            #include &lt;stdlib.h&gt;
+            
+            struct pol{
+                int power;
+                float data;
+                struct pol* next;
+                
+            }*poly,*poly2,*poly3,*start,*nn,*search;
+            
+            struct pol* insert(int degree){
+                int i=0;
+                
+                while(degree>=0){
+                    if(i==0){
+                        nn=(struct pol*)malloc(sizeof(struct pol));
+                    printf("\nEnter the coff of degree of x^%d:",degree);
+                    scanf("%f",&nn->data);
+                       nn->power=degree;
+                            
+                    start=search=nn;
+                    i++;
+                }
+                else if (degree==0){
+                    nn=(struct pol*)malloc(sizeof(struct pol));
+                      printf("\nEnter the coff of degree of x^%d:",degree);
+                    scanf("%f",&nn->data);
+                    nn->power=degree;
+                  search->next=nn;
+                  search=nn;
+                  nn->next=NULL;
+                }
+                else{
+                    nn=(struct pol*)malloc(sizeof(struct pol));
+                  printf("\nEnter the coff of degree of %d:",degree);
+                 scanf("%f",&nn->data);
+                    nn->power=degree;
+                  search->next=nn;
+                  search=nn;
+                }
+                    degree--;
+                }
+                return start;
+            }
+            struct pol* add(struct pol* poly,struct pol* poly2 ,int degree){
+                int i=0;
+                
+                while(degree>=0){
+                    if(i==0){
+                    nn=(struct pol*)malloc(sizeof(struct pol));
+                    nn->data=poly->data+poly2->data;
+                       nn->power=degree;
+                            
+                    start=search=nn;
+                    
+                }
+                else if (degree==0){
+                    nn=(struct pol*)malloc(sizeof(struct pol));
+                  nn->data=poly->data+poly2->data;
+                       nn->power=degree;
+                  search->next=nn;
+                  search=nn;
+                  nn->next=NULL;
+                }
+                else{
+                    nn=(struct pol*)malloc(sizeof(struct pol));
+                   nn->data=poly->data+poly2->data;
+                       nn->power=degree;
+                       nn->next=NULL;
+                  search->next=nn;
+                  search=nn;
+                }
+                    degree--;
+                    poly=poly->next;
+                   poly2=poly2->next;
+                    i++;
+                }
+                return start;
+            }
+            
+            void print(struct pol* node){
+               search=node;
+               while(search->next!=NULL){
+                   printf("%fx^%d+",search->data,search->power);
+                  search = search->next;
+               }
+               if(search->next==NULL){
+                 printf("%fx^%d",search->data,search->power);
+                 printf("\n");
+               }
+            }
+            
+            int main() {
+                int deg;
+                
+                printf("\nEnter the highest degree of your polynomial:");
+                scanf("%d",&deg);
+                
+                printf("\nInsert 1st polynomial equation:\n");
+               poly = insert(deg);
+               print(poly);
+               
+               printf("\nInsert 2nd polynomial equation:\n");
+               poly2= insert(deg);
+                print(poly2);
+                
+               printf("\nAddition of both  polynomial equation:\n");
+               poly3=add(poly,poly2,deg);
+                print(poly3);
+               
+                return 0;
+            } 
+            <h1>OUTPUT</h1>
+            <hr>
+Enter the highest degree of your polynomial:3
+
+Insert 1st polynomial equation:
+
+Enter the coff of degree of x^3:2
+
+Enter the coff of degree of 2:3
+
+Enter the coff of degree of 1:1
+
+Enter the coff of degree of x^0:5
+2.000000x^3+3.000000x^2+1.000000x^1+5.000000x^0
+
+Insert 2nd polynomial equation:
+
+Enter the coff of degree of x^3:0
+
+Enter the coff of degree of 2:5
+
+Enter the coff of degree of 1:7
+
+Enter the coff of degree of x^0:8
+0.000000x^3+5.000000x^2+7.000000x^1+8.000000x^0
+
+Addition of both  polynomial equation:
+2.000000x^3+8.000000x^2+8.000000x^1+13.000000x^0
+    </pre>
+</body>
+</html>

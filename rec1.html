@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            int fact(int num)
+            {
+                if (num == 1)
+                    return 1;
+                else
+                    return num * fact(num - 1);
+            }
+            int main()
+            {
+                int num;
+                printf("Enter the no. whose factorial you want to find:");
+                scanf("%d", &num);
+                printf("Factorial of %d is %d", num, fact(num));
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter the no. whose factorial you want to find:5
+Factorial of 5 is 120
+    </pre>
+</body>
+</html>

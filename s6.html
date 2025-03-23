@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+    <pre>
+        <h1>CODE</h1>
+        <hr>
+        #include &lt;stdio.h&gt;
+            int bs(int l, int r, char key, char *arr)
+            {
+                if (l <= r)
+                {
+                    int mid;
+                    mid = ((l + r) / 2);
+                    if (arr[mid] == key)
+                    {
+                        return mid;
+                    }
+                    else if (arr[mid] > key)
+                        return bs(l, mid - 1, key, arr);
+                    else
+                        return bs(mid + 1, r, key, arr);
+                }
+                return -1;
+            }
+            int main()
+            {
+                char arr[10], key;
+                int loc, l = 0, r, size = 0, i = 0;
+                printf("Enter the string:");
+                gets(arr);
+                while (arr[i] != '\0')
+                {
+                    i++;
+                    size++;
+                }
+                r = size - 1;
+                printf("Enter the element you want to search:");
+                scanf("%c", &key);
+                loc = bs(l, r, key, arr);
+                if (loc == -1)
+                    printf("%c not found in the array\n", key);
+                else
+                    printf("%c found at index %d in the array\n", key, loc);
+                return 0;
+                return 0;
+            }
+            <h1>OUTPUT</h1>
+            <hr>
+Enter the string:ABCDE
+Enter the element you want to search:E
+E found at index 4 in the array
+    </pre>
+</body>
+</html>
